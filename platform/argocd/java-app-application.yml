@@ -21,3 +21,5 @@ spec:
     automated:
       selfHeal: true
       prune: true  # Add any other syncPolicy settings as needed
+  imagePullSecrets:
+  - name: dockerhub-secret    
