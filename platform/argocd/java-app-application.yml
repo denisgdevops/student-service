@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: java-app-commerce-service
+  name: java-app-student-service
   namespace: argocd
 spec:
   project: default
 
   source:
-    repoURL: https://github.com/denisgdevops/spring-app-service.git  # Replace with your GitLab repo URL
+    repoURL: https://github.com/denisgdevops/student-service.git # Replace with your GitLab repo URL
     targetRevision: HEAD
     path: platform/helm # Path to your application's Kubernetes manifests
   destination:
