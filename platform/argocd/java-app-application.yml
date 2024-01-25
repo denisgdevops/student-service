@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: java-commerce-micro-service
+  name: java-planning-service
   namespace: argocd
 spec:
   project: default

@@ -5,7 +5,7 @@
 replicaCount: 2
 
 image:
-  repository: gikundi/java-app-commerce-service
+  repository: gikundi/java-app-plan-service
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
