@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: java-app-student-service
+  name: java-commerce-micro-service
   namespace: argocd
 spec:
   project: default
@@ -23,3 +23,5 @@ spec:
       prune: true  # Add any other syncPolicy settings as needed
   imagePullSecrets:
   - name: dockerhub-secret    
+
+
