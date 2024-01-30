@@ -9,6 +9,13 @@
 
 name: Publish Docker image
 
+on:
+  push:
+    branches:
+      - feature/package-registry
+  pull_request:
+    branches:
+      - feature/package-registry
 
 jobs:
   build-and-publish-head:
