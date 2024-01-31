@@ -34,5 +34,5 @@ jobs:
         docker buildx create --name mybuilder
         docker buildx use mybuilder
         docker buildx inspect --bootstrap
-        docker buildx build --platform linux/amd64,linux/arm64 -t docker.pkg.github.com/${{ github.repository }}/java-app-commerce-service:latest .
+        docker buildx build --platform linux/amd64,linux/arm64 -t docker.pkg.github.com/${{ github.repository }}/your-image-name:latest -f ./app/Dockerfile .
         docker buildx stop mybuilder
