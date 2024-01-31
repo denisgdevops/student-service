@@ -21,7 +21,7 @@ public class ApiController {
 
         Students student1 = new Students();
         student1.setId(1);
-        student1.setName("Robert Kamaru");
+        student1.setName("Denis Kamaru");
         student1.setSex("Male");
         student1.setAge(18);
 

@@ -5,8 +5,8 @@
 replicaCount: 3
 
 image:
-  repository: gikundi/java-app-plan-service
-  pullPolicy: IfNotPresent
+  repository: ghcr.io/denisgdevops/student-service
+  pullPolicy: feature-package-registry
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
 
@@ -41,7 +41,7 @@ securityContext: {}
 
 service:
   type: NodePort
-  port: 80
+  port: 8085
   targetPort: 8085
 
 ingress:
