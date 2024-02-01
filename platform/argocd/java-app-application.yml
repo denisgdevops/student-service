@@ -8,7 +8,7 @@ spec:
 
   source:
     repoURL: https://github.com/denisgdevops/student-service.git # Replace with your GitLab repo URL
-    targetRevision: HEAD
+    targetRevision: feature/package-registry
     path: platform/helm # Path to your application's Kubernetes manifests
   destination:
     server: https://kubernetes.default.svc  # Minikube Kubernetes API server
