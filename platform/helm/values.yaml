@@ -51,7 +51,7 @@ ingress:
   # kubernetes.io/ingress.class: nginx
   # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: java-app.local 
+    - host: app-micro.local 
       paths:
         - path: /
           pathType: ImplementationSpecific
