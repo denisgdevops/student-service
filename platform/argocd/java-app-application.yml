@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: java-planning-service
+  name: java-micro-service
   namespace: argocd
 spec:
   project: default
@@ -21,7 +21,7 @@ spec:
     automated:
       selfHeal: true
       prune: true  # Add any other syncPolicy settings as needed
-  imagePullSecrets:
-  - name: dockerhub-secret    
+  # imagePullSecrets:
+  # - name: dockerhub-secret    
 
 
