@@ -44,5 +44,5 @@ jobs:
           file: ./app/Dockerfile
           push: true
           tags: |
-            docker.io/gikundi/java-app-plan-service:latest
+            docker.io/gikundi/java-app-plan-service:${{ github.sha }}
           labels: ${{ steps.meta.outputs.labels }}
