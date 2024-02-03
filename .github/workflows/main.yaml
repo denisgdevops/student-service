@@ -48,5 +48,5 @@ jobs:
         with:
           context: ./app
           push: true
-          tags: latest ${{ github.ref_slug }}
+          tags: ${{ steps.meta.outputs.tags }}, ${{ github.ref_slug }}
           labels: ${{ steps.meta.outputs.labels }}
