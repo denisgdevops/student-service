@@ -21,13 +21,13 @@ public class ApiController {
 
         Students student1 = new Students();
         student1.setId(1);
-        student1.setName("Kamau Owiyo");
+        student1.setName("Dorcas Owiyo");
         student1.setSex("Female");
-        student1.setAge(40);
+        student1.setAge(45);
 
         Students student2 = new Students();
         student2.setId(2);
-        student2.setName("Catherine BKabasila");
+        student2.setName("Francis BKabasila");
         student2.setSex("Female");
         student2.setAge(40);
 
