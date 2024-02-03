@@ -8,7 +8,7 @@ image:
   repository: ghcr.io/denisgdevops/student-service
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: placeholder
+  tag: feature-package-registry
 
 # imagePullSecrets:
 #   - name: dockerhub-secret   # Specify the name of your Docker Hub secret here
