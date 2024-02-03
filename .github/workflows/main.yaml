@@ -48,5 +48,8 @@ jobs:
         with:
           context: ./app
           push: true
-          tags: ${{ steps.meta.outputs.tags }}, ${{ github.ref_slug }}
+          tags: |
+            # set latest tag for master branch
+            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'feature/package-registry') }}
+
           labels: ${{ steps.meta.outputs.labels }}
