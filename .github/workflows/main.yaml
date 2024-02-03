@@ -48,7 +48,5 @@ jobs:
         with:
           context: ./app
           push: true
-          tags: |
-            latest
-            ${{ github.ref == 'refs/heads/feature/package-registry' && 'latest' }}
+          tags: ${{ github.ref_slug }}
           labels: ${{ steps.meta.outputs.labels }}
