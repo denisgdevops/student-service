@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/students")
+@RequestMapping("/api/students/service")
 public class ApiController {
 
     @GetMapping
@@ -21,15 +21,15 @@ public class ApiController {
 
         Students student1 = new Students();
         student1.setId(1);
-        student1.setName("James Katene");
-        student1.setSex("Male");
-        student1.setAge(38);
+        student1.setName("Susan Owiyo");
+        student1.setSex("Female");
+        student1.setAge(40);
 
         Students student2 = new Students();
         student2.setId(2);
-        student2.setName("Kilonzi BKabasila");
+        student2.setName("Catherine BKabasila");
         student2.setSex("Female");
-        student2.setAge(45);
+        student2.setAge(40);
 
         students.add(student1);
         students.add(student2);
