@@ -48,6 +48,5 @@ jobs:
         with:
           context: ./app
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.meta.outputs.tags }}, ${{ github.ref_slug }}
           labels: ${{ steps.meta.outputs.labels }}
-
