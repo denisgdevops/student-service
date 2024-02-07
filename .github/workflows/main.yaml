@@ -31,12 +31,16 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Get short commit hash
+        id: commit_hash
+        run: echo "::set-output name=hash::$(git rev-parse --short ${{ github.sha }})"
+
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: docker.io/gikundi/java-app-plan-service:${{ github.sha }}
-          
+
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
@@ -44,5 +48,5 @@ jobs:
           file: ./app/Dockerfile
           push: true
           tags: |
-            docker.io/gikundi/java-app-plan-service:${{ github.sha }}
+            docker.io/gikundi/java-app-plan-service:${{ steps.commit_hash.outputs.hash }}
           labels: ${{ steps.meta.outputs.labels }}

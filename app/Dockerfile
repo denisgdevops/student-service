@@ -10,4 +10,7 @@ RUN ./mvnw dependency:resolve
 
 COPY app/src ./src
 
+# Set label to indicate the commit hash
+LABEL commit_hash=${COMMIT_HASH}
+
 CMD ["./mvnw", "spring-boot:run"]

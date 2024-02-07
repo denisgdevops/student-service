@@ -8,10 +8,10 @@ image:
   repository: gikundi/java-app-plan-service
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 61dcd70745651381690284c78e27dcd5fd4d8f64
+  tag: latest
 
-  # Use Helm templating to dynamically set the tag based on the commit hash
-  commitTag: latest-{{ .Values.commitHash }}
+  # # Use Helm templating to dynamically set the tag based on the commit hash
+  # commitTag: latest-{{ .Values.commitHash }}
 
 imagePullSecrets:
   - name: dockerhub-secret   # Specify the name of your Docker Hub secret here
