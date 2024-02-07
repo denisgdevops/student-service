@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Your logic to update values in values.yaml
-NEW_TAG="latest-$(git rev-parse --short HEAD)"
+NEW_TAG="$(git rev-parse --short ${{ github.sha }})"
 
 sed -i "s/tag: latest/tag: $NEW_TAG/" values.yaml
 
