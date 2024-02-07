@@ -8,7 +8,7 @@ image:
   repository: gikundi/java-app-plan-service
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 
+  tag: 9e40106
 
   # # Use Helm templating to dynamically set the tag based on the commit hash
   # commitTag: latest-{{ .Values.commitHash }}
