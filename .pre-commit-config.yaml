@@ -1,8 +1,0 @@
-repos:
-  - repo: local
-    hooks:
-      - id: update-values
-        name: Update values.yaml
-        entry: ./platform/helm/update-values.sh
-        language: script
-
