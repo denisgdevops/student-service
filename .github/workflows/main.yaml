@@ -70,4 +70,4 @@ jobs:
         with:
           repository: denisgdevops/student-service
           branch: master
-          github_token: ${{ secrets.MY_GIT_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
