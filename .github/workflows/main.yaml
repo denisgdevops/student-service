@@ -57,7 +57,7 @@ jobs:
           cd platform/helm
           pwd && ls -lrt
           value=$(cat values.yaml | grep tag: | awk -F ':' '{print $NF}')
-          sed -i "s#$value#${{ steps.commit_hash.outputs.hash  }}#g" values.yaml
+          sed -i "s#$value# ${{ steps.commit_hash.outputs.hash }}#g" values.yaml
           cat values.yaml | grep tag:
       - name: Commit files
         run: |
