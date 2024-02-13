@@ -46,7 +46,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=denisgdevops_student-service
+        run: |
+          cd app # Change directory to the app directory
+          ls -la # List contents of the directory to verify
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=denisgdevops_student-service
   push_to_registry:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
