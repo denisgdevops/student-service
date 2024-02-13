@@ -13,7 +13,6 @@ public class ApiService {
     public List<Students> fetchStudents () {
 
         List<Students> students = new ArrayList<>();
-
         Students student1 = new Students();
         student1.setId(1);
         student1.setName("Emmanuel Keni");
@@ -30,7 +29,6 @@ public class ApiService {
         students.add(student2);
 
         return students;
-
 
     }
 }
