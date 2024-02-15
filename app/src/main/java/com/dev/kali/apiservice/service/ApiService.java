@@ -1,6 +1,11 @@
-package com.dev.kali.apiservice.controller;
+package com.dev.kali.apiservice.service;
 
 import com.dev.kali.apiservice.dtos.Students;
+import com.dev.kali.apiservice.model.Tutorial;
+import com.dev.kali.apiservice.repository.TutorialRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -8,6 +13,24 @@ import java.util.List;
 
 @Service
 public class ApiService {
+
+    @Autowired
+    TutorialRepository tutorialRepository;
+
+
+    public List<Tutorial> fetchTutorials (String title) {
+
+        List<Tutorial> tutorials = new ArrayList<Tutorial>();
+
+        if (title == null)
+            tutorials.addAll(tutorialRepository.findAll());
+        else
+            tutorials.addAll(tutorialRepository.findByTitleContaining(title));
+
+        return tutorials;
+
+    }
+
 
     public List<Students> fetchStudents () {
 
