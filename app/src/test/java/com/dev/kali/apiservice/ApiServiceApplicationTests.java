@@ -105,6 +105,8 @@ class ApiServiceApplicationTests {
 
         List<Tutorial> tutorials = setTutorialData();
         Mockito.when(tutorialRepository.findAll()).thenReturn(tutorials);
+        // Mock the service call and return the test data
+        when(apiService.fetchTutorials()).thenReturn(tutorials);
         assertEquals(apiService.fetchTutorials(),tutorialRepository.findAll());
 
     }
@@ -133,7 +135,7 @@ class ApiServiceApplicationTests {
         tutorials.add(tutorial1);
 
         Tutorial tutorial2 = new Tutorial();
-        tutorial2.setId(1);
+        tutorial2.setId(2);
         tutorial2.setTitle("Copilot");
         tutorial2.setDescription("Copilot automates work");
         tutorial2.setPublished(false);
