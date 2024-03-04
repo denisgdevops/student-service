@@ -18,17 +18,12 @@ public class ApiService {
     TutorialRepository tutorialRepository;
 
 
-    public List<Tutorial> fetchTutorials (String title) {
+    public List<Tutorial> fetchTutorials () {
+        return tutorialRepository.findAll();
+    }
 
-        List<Tutorial> tutorials = new ArrayList<Tutorial>();
-
-        if (title == null)
-            tutorials.addAll(tutorialRepository.findAll());
-        else
-            tutorials.addAll(tutorialRepository.findByTitleContaining(title));
-
-        return tutorials;
-
+    public List<Tutorial> fetchTutorialsByTittle (String title) {
+        return tutorialRepository.findByTitleContaining(title);
     }
 
 

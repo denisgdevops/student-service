@@ -93,28 +93,41 @@ class ApiServiceApplicationTests {
     @Test
     public void testFetchTutorials_SpecificTitle() {
 
-        List<Tutorial> tutorials = new ArrayList<>();
+        List<Tutorial> tutorialsTitle = setTutorialTitleData();
 
-        Tutorial tutorial = new Tutorial();
-        tutorial.setId(1);
-        tutorial.setTitle("Power Apps Class");
-        tutorial.setDescription("Power Apps class is fun");
-        tutorial.setPublished(true);
-        tutorials.add(tutorial);
-
-        Mockito.when(apiService.fetchTutorials("Power Apps Class")).thenReturn(tutorials);
-        assertEquals(tutorials,apiService.fetchTutorials("Power Apps Class"));
+        Mockito.when(apiService.fetchTutorialsByTittle("Power Apps Class")).thenReturn(tutorialsTitle);
+        assertEquals(tutorialsTitle,apiService.fetchTutorialsByTittle("Power Apps Class"));
 
     }
 
     @Test
     public void testFetchTutorials_AllData() {
 
-        List<Tutorial> tutorials = new ArrayList<>();
+        List<Tutorial> tutorials = setTutorialData();
+        Mockito.when(tutorialRepository.findAll()).thenReturn(tutorials);
+        assertEquals(apiService.fetchTutorials(),tutorialRepository.findAll());
 
+    }
+
+
+    public  List<Tutorial> setTutorialTitleData() {
+        List<Tutorial> tutorials = new ArrayList<>();
         Tutorial tutorial1 = new Tutorial();
         tutorial1.setId(1);
-        tutorial1.setTitle("Power Apps Class");
+        tutorial1.setTitle("Powerapps");
+        tutorial1.setDescription("Power Apps class is fun");
+        tutorial1.setPublished(true);
+        tutorials.add(tutorial1);
+        return tutorials;
+
+    }
+
+
+    public  List<Tutorial> setTutorialData() {
+        List<Tutorial> tutorials = new ArrayList<>();
+        Tutorial tutorial1 = new Tutorial();
+        tutorial1.setId(1);
+        tutorial1.setTitle("Powerapps");
         tutorial1.setDescription("Power Apps class is fun");
         tutorial1.setPublished(true);
         tutorials.add(tutorial1);
@@ -126,13 +139,10 @@ class ApiServiceApplicationTests {
         tutorial2.setPublished(false);
         tutorials.add(tutorial2);
 
-        Mockito.when(tutorialRepository.findAll()).thenReturn(tutorials);
-
-        Mockito.when(apiService.fetchTutorials(null)).thenReturn(tutorials);
-
-        assertEquals(apiService.fetchTutorials(null),tutorialRepository.findAll());
+        return tutorials;
 
     }
+
 
 
 }

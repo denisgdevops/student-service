@@ -17,16 +17,34 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class TutorialController {
 
-    @Autowired
-    TutorialRepository tutorialRepository;
+    private TutorialRepository tutorialRepository;
+
+    // Constructor with @Autowired
+    public TutorialController(TutorialRepository tutorialRepository) {
+        this.tutorialRepository = tutorialRepository;
+    }
 
     @Autowired
     ApiService apiService;
 
     @GetMapping("/tutorials")
-    public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title) {
+    public ResponseEntity<List<Tutorial>> getAllTutorials() {
         try {
-            List<Tutorial> tutorials = apiService.fetchTutorials(title);
+            List<Tutorial> tutorials = apiService.fetchTutorials();
+
+            if (tutorials.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(tutorials, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/tutorialsTitle/{title}")
+    public ResponseEntity<List<Tutorial>> getAllTutorialsByTitle(@PathVariable(required = false) String title) {
+        try {
+            List<Tutorial> tutorials = apiService.fetchTutorialsByTittle(title);
 
             if (tutorials.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);

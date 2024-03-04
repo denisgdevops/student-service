@@ -1,9 +1,11 @@
 package com.dev.kali.apiservice.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
 @Table(name="Tutorials")
+@Data
 public class Tutorial {
 
     @Id
@@ -27,40 +29,6 @@ public class Tutorial {
         this.description = description;
         this.published = published;
     }
-
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public boolean isPublished() {
-        return published;
-    }
-
-    public void setPublished(boolean published) {
-        this.published = published;
-    }
-
 
     @Override
     public String toString() {
